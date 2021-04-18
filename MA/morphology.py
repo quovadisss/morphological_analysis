@@ -193,9 +193,9 @@ st_tech = stopwords_v_n(tech_words, ['NN', 'n'])
 # Attribute: People
 st_norp, st_org, st_product = people_ner(news)
 # Save results
-# with open('data/all_words.pkl', 'wb') as fw:
+# with open('data/all_words_{}.pkl'.format(args.data), 'wb') as fw:
 #     pickle.dump([st_sys, st_tech, st_norp, st_org, st_product], fw)
-# with open('data/all_words.pkl', 'rb') as fr:
+# with open('data/all_words_{}.pkl'.format(args.data), 'rb') as fr:
 #     all_words = pickle.load(fr)
 
 

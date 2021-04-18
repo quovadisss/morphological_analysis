@@ -9,17 +9,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-from lxml import etree
-from nltk.tokenize import word_tokenize, sent_tokenize
-from tensorflow.keras.preprocessing.text import text_to_word_sequence
-from sklearn.manifold import TSNE
-from sklearn.cluster import KMeans, MeanShift, estimate_bandwidth, DBSCAN
-from sklearn.decomposition import PCA
-from sklearn.metrics import silhouette_samples, silhouette_score
-from sklearn.mixture import GaussianMixture
-from nltk.tag import pos_tag
-from collections import Counter
-from matplotlib import cm
+from sklearn.cluster import KMeans
 
 
 # get 300 dimensions w2v for each list
@@ -38,7 +28,6 @@ def get_w2v(x):
 
 # K means, word/Index dictionary
 def k_means(vec, words, n_clusters):
-    # pca_result = PCA_reduction(x)
     kmeans_clustering = KMeans(n_clusters=n_clusters, random_state=100)
     idx = list(kmeans_clustering.fit_predict(vec))
     word_centroid_map = {words[i]: idx[i] for i in range(len(words))}
